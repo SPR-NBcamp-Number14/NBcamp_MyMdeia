@@ -65,8 +65,8 @@ dependencies {
     val arch_version = "2.1.0"
 
     //activityViewmodel
-    implementation("androidx.activity:activity-ktx:1.5.7")
-    implementation("androidx.fragment:fragment-ktx:1.5.7")
+    implementation("androidx.activity:activity-ktx:1.7.2")
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
