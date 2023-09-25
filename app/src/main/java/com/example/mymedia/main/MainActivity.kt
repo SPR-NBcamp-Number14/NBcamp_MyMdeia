@@ -6,7 +6,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.mymedia.R
 import com.example.mymedia.databinding.MainActivityBinding
 
-@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: MainActivityBinding
     private val viewPagerAdapter by lazy {
