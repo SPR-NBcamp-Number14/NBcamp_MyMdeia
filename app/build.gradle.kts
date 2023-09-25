@@ -58,9 +58,7 @@ dependencies {
     // viewmodel 및 lifecycle
     // 유튜브 api
     implementation("com.android.identity:identity-credential:20230420")
-    implementation("com.google.apis:google-api-services-youtube:v3-rev20230904-2.0.0")
-    implementation("com.google.api-client:google-api-client:2.2.0")
-    implementation("com.google.oauth-client:google-oauth-client-jetty:1.34.1")
+
     val lifecycle_version = "2.5.1"
     val arch_version = "2.1.0"
 
