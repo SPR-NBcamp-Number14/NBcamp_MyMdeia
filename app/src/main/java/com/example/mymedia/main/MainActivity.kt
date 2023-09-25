@@ -2,11 +2,16 @@ package com.example.mymedia.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.viewpager2.widget.ViewPager2
 import com.example.mymedia.R
 import com.example.mymedia.databinding.MainActivityBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding:MainActivityBinding
+    private lateinit var binding: MainActivityBinding
+    private val viewPagerAdapter by lazy {
+        ViewPagerAdapter(this@MainActivity)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = MainActivityBinding.inflate(layoutInflater)
@@ -15,7 +20,36 @@ class MainActivity : AppCompatActivity() {
         initView()
     }
 
-    private fun initView() = with(binding){
+    private fun initView() = with(binding) {
+        //스와이프 금지
+        mainViewpager.run {
+            isUserInputEnabled = false
+        }
+        mainViewpager.adapter = viewPagerAdapter
 
+        //뷰페이저 네비게이션바 연결
+        mainViewpager.registerOnPageChangeCallback(
+            object : ViewPager2.OnPageChangeCallback() {
+
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                    mainNvMenu.menu.getItem(position).isChecked = true
+                }
+            }
+        )
+
+        //네비게이션 바 선택 이벤트
+        mainNvMenu.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.menu_home -> mainViewpager.currentItem = 0
+                R.id.menu_search -> mainViewpager.currentItem = 1
+                R.id.menu_profile -> mainViewpager.currentItem = 2
+            }
+            true
+        }
     }
+
+
 }
+
+
